@@ -54,3 +54,31 @@ void pushAtEnd(struct Node** head_ref, int new_data)
   last->next = new_node;
   return;
 }
+
+//Delete a node from list
+void deleteNode(struct Node** head_ref, int key) 
+{
+  struct Node *temp = *head_ref, *prev;
+
+  if (temp != NULL && temp->data == key) 
+  {
+    *head_ref = temp->next;
+    free(temp);
+    return;
+  }
+  
+  // Find the key to be deleted
+  while (temp != NULL && temp->data != key) 
+  {
+    prev = temp;
+    temp = temp->next;
+  }
+
+  // If the key is not present
+  if (temp == NULL) return;
+
+  // Remove the node
+  prev->next = temp->next;
+
+  free(temp);
+}
