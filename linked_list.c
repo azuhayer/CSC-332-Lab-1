@@ -10,6 +10,8 @@ struct Node
     struct Node* next;
 };
 
+struct Node* head;
+
 //Insert at the beginning of list
 void pushBeginning(struct Node** head_ref, int new_data) 
 {
@@ -122,4 +124,28 @@ void sortLinkedList(struct Node** head_ref)
       current = current->next;
     }
   }
+}
+
+//Traverse function
+void traverseList()
+{
+  struct Node* temp;
+
+  if(head == NULL)
+  {
+    printf("List is empty.");
+    return;
+  }
+    
+  temp = head;
+  while(temp != NULL)
+  {
+    printf("Data = %d\n", temp->data); 
+    temp = temp->next;     
+  }
+}
+
+int main()
+{
+  
 }
