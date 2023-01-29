@@ -67,14 +67,12 @@ void deleteNode(struct Node** head_ref, int key)
     return;
   }
   
-  //Find the key to be deleted
   while (temp != NULL && temp->data != key) 
   {
     prev = temp;
     temp = temp->next;
   }
 
-  //If the key is not present then remove the node
   if (temp == NULL) return;
   prev->next = temp->next;
 
