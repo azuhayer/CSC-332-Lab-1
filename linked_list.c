@@ -147,5 +147,8 @@ void traverseList()
 
 int main()
 {
-  
+  int numOfNodes = 0;
+  printf("How many nodes would you like to insert in total? Type a number: \n");
+  scanf("%d", numOfNodes);
+
 }
