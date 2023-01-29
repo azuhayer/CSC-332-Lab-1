@@ -126,7 +126,7 @@ void sortLinkedList(struct Node** head_ref)
 }
 
 // Print the linked list
-void traverseList(struct Node* node) 
+void printList(struct Node* node) 
 {
   while (node != NULL) 
   {
@@ -139,7 +139,7 @@ void traverseList(struct Node* node)
 int main() 
 {
   struct Node* head = NULL;
-
+  
   pushAtEnd(&head, 3);
   pushAtBeginning(&head, 9);
   pushAtBeginning(&head, 4);
@@ -165,5 +165,5 @@ int main()
 
   sortLinkedList(&head);    //sort list
   printf("\nSorted List: ");
-  traverseList(head);       //traverse list
+  printList(head);       //traverse list
 }
