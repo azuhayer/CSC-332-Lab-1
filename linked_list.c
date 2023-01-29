@@ -3,30 +3,34 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//Creating a node
+// Create a node
 struct Node 
 {
-    int data;
-    struct Node* next;
+  int data;
+  struct Node* next;
 };
 
-struct Node* head;
-
-//Insert at the beginning of list
-void pushBeginning(struct Node** head_ref, int new_data) 
+// Insert at the beginning
+void insertAtBeginning(struct Node** head_ref, int new_data) 
 {
+  // Allocate memory to a node
   struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));
+
+  // insert the data
   new_node->data = new_data;
+
   new_node->next = (*head_ref);
+
+  // Move head to new node
   (*head_ref) = new_node;
 }
 
-//Insert a node after another node
-void pushAfter(struct Node* prev_node, int new_data) 
+// Insert a node after a node
+void insertAfter(struct Node* prev_node, int new_data) 
 {
   if (prev_node == NULL) 
   {
-    printf("The previous node is NULL, please insert starting node.");
+    printf("the given previous node cannot be NULL");
     return;
   }
 
@@ -36,8 +40,8 @@ void pushAfter(struct Node* prev_node, int new_data)
   prev_node->next = new_node;
 }
 
-// Insert at the end of a list
-void pushAtEnd(struct Node** head_ref, int new_data) 
+// Insert the the end
+void insertAtEnd(struct Node** head_ref, int new_data) 
 {
   struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));
   struct Node* last = *head_ref;
@@ -57,7 +61,7 @@ void pushAtEnd(struct Node** head_ref, int new_data)
   return;
 }
 
-//Delete a node from list
+// Delete a node
 void deleteNode(struct Node** head_ref, int key) 
 {
   struct Node *temp = *head_ref, *prev;
@@ -68,34 +72,37 @@ void deleteNode(struct Node** head_ref, int key)
     free(temp);
     return;
   }
-  
+
+  // Find the key to be deleted
   while (temp != NULL && temp->data != key) 
   {
     prev = temp;
     temp = temp->next;
   }
 
+  // If the key is not present
   if (temp == NULL) return;
+
+  // Remove the node
   prev->next = temp->next;
 
   free(temp);
 }
 
-//Search Function
-int searchForNode(struct Node** head_ref, int key) 
+// Search a node
+int searchNode(struct Node** head_ref, int key) 
 {
   struct Node* current = *head_ref;
 
   while (current != NULL) 
   {
-    if (current->data == key) 
-    return 1;
+    if (current->data == key) return 1;
     current = current->next;
   }
   return 0;
 }
 
-//Sort Function
+// Sort the linked list
 void sortLinkedList(struct Node** head_ref) 
 {
   struct Node *current = *head_ref, *index = NULL;
@@ -105,50 +112,68 @@ void sortLinkedList(struct Node** head_ref)
   {
     return;
   } 
+
   else 
   {
     while (current != NULL) 
     {
+      // index points to the node next to current
       index = current->next;
 
       while (index != NULL) 
       {
-        if (current->data > index->data) 
-        {
-          temp = current->data;
-          current->data = index->data;
-          index->data = temp;
-        }
-        index = index->next;
+      if (current->data > index->data) 
+      {
+        temp = current->data;
+        current->data = index->data;
+        index->data = temp;
+      }
+      index = index->next;
       }
       current = current->next;
     }
   }
 }
 
-//Traverse function
-void traverseList()
+// Print the linked list
+void printList(struct Node* node) 
 {
-  struct Node* temp;
-
-  if(head == NULL)
+  while (node != NULL) 
   {
-    printf("List is empty.");
-    return;
-  }
-    
-  temp = head;
-  while(temp != NULL)
-  {
-    printf("Data = %d\n", temp->data); 
-    temp = temp->next;     
+    printf(" %d ", node->data);
+    node = node->next;
   }
 }
 
-int main()
+// Driver program
+int main() 
 {
-  int numOfNodes = 0;
-  printf("How many nodes would you like to insert in total? Type a number: \n");
-  scanf("%d", numOfNodes);
+  struct Node* head = NULL;
 
+  insertAtEnd(&head, 3);
+  insertAtBeginning(&head, 9);
+  insertAtBeginning(&head, 4);
+  insertAtEnd(&head, 1);
+  insertAfter(head->next, 7);
+
+  printf("Linked list: ");
+  printList(head);
+
+  printf("\nAfter deleting an element: ");
+  deleteNode(&head, 3);
+  printList(head);
+
+  int item_to_find = 7;
+  if (searchNode(&head, item_to_find)) 
+  {
+    printf("\n%d is found", item_to_find);
+  } 
+  else 
+  {
+    printf("\n%d is not found", item_to_find);
+  }
+
+  sortLinkedList(&head);
+  printf("\nSorted List: ");
+  printList(head);
 }
