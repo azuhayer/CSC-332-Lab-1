@@ -3,14 +3,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Create a node
+//Create a node
 struct Node 
 {
   int data;
   struct Node* next;
 };
 
-// Insert at the beginning
+//Insert at the beginning
 void pushAtBeginning(struct Node** head_ref, int new_data) 
 {
   struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));
@@ -19,7 +19,7 @@ void pushAtBeginning(struct Node** head_ref, int new_data)
   (*head_ref) = new_node;
 }
 
-// Insert a node after a node
+//Insert a node after a node
 void pushAfter(struct Node* prev_node, int new_data) 
 {
   if (prev_node == NULL) 
@@ -34,7 +34,7 @@ void pushAfter(struct Node* prev_node, int new_data)
   prev_node->next = new_node;
 }
 
-// Insert the the end
+//Insert the the end
 void pushAtEnd(struct Node** head_ref, int new_data) 
 {
   struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));
@@ -55,7 +55,7 @@ void pushAtEnd(struct Node** head_ref, int new_data)
   return;
 }
 
-// Delete a node
+//Delete a node
 void deleteNode(struct Node** head_ref, int key) 
 {
   struct Node *temp = *head_ref, *prev;
@@ -67,7 +67,7 @@ void deleteNode(struct Node** head_ref, int key)
     return;
   }
 
-  // Find the key to be deleted
+  //Find the node to be deleted
   while (temp != NULL && temp->data != key) 
   {
     prev = temp;
@@ -80,7 +80,7 @@ void deleteNode(struct Node** head_ref, int key)
   free(temp);
 }
 
-// Search a node
+//Search for a node
 int searchForNode(struct Node** head_ref, int key) 
 {
   struct Node* current = *head_ref;
@@ -93,7 +93,7 @@ int searchForNode(struct Node** head_ref, int key)
   return 0;
 }
 
-// Sort the linked list
+//Sort the linked list
 void sortLinkedList(struct Node** head_ref) 
 {
   struct Node *current = *head_ref, *index = NULL;
@@ -125,7 +125,7 @@ void sortLinkedList(struct Node** head_ref)
   }
 }
 
-// Print the linked list
+//Traverse the linked list
 void printList(struct Node* node) 
 {
   while (node != NULL) 
@@ -135,22 +135,23 @@ void printList(struct Node* node)
   }
 }
 
-// Driver program
+//Driver program
 int main() 
 {
   struct Node* head = NULL;
-  
-  pushAtEnd(&head, 3);
+
   pushAtBeginning(&head, 9);
   pushAtBeginning(&head, 4);
-  pushAtEnd(&head, 1);
   pushAfter(head->next, 7);
+  pushAfter(head->next, 5);
+  pushAtEnd(&head, 1);
+  pushAtEnd(&head, 3);
 
   printf("Linked list: ");
   printList(head);
 
   printf("\nAfter deleting an element: ");
-  deleteNode(&head, 3);   //delete node
+  deleteNode(&head, 7);     //delete node
   printList(head);
 
   int item_to_find = 7;
@@ -163,7 +164,7 @@ int main()
     printf("\n%d is not found", item_to_find);
   }
 
-  sortLinkedList(&head);    //sort list
+  sortLinkedList(&head);      //sort list
   printf("\nSorted List: ");
-  printList(head);       //traverse list
+  printList(head);            //traverse list
 }
