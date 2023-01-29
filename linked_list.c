@@ -80,3 +80,48 @@ void deleteNode(struct Node** head_ref, int key)
 
   free(temp);
 }
+
+//Search Function
+int searchForNode(struct Node** head_ref, int key) 
+{
+  struct Node* current = *head_ref;
+
+  while (current != NULL) 
+  {
+    if (current->data == key) 
+    return 1;
+    current = current->next;
+  }
+  return 0;
+}
+
+//Sort Function
+void sortLinkedList(struct Node** head_ref) 
+{
+  struct Node *current = *head_ref, *index = NULL;
+  int temp;
+
+  if (head_ref == NULL) 
+  {
+    return;
+  } 
+  else 
+  {
+    while (current != NULL) 
+    {
+      index = current->next;
+
+      while (index != NULL) 
+      {
+        if (current->data > index->data) 
+        {
+          temp = current->data;
+          current->data = index->data;
+          index->data = temp;
+        }
+        index = index->next;
+      }
+      current = current->next;
+    }
+  }
+}
