@@ -144,6 +144,7 @@ int main()
   pushAtBeginning(&head, 4);
   pushAfter(head->next, 7);
   pushAfter(head->next, 5);
+  pushAfter(head->next, 2);
   pushAtEnd(&head, 1);
   pushAtEnd(&head, 3);
 
@@ -151,20 +152,20 @@ int main()
   printList(head);
 
   printf("\nAfter deleting an element: ");
-  deleteNode(&head, 7);     //delete node
+  deleteNode(&head, 7);                  //delete node
   printList(head);
 
-  int item_to_find = 7;
-  if (searchForNode(&head, item_to_find))  //search for node
+  int item = 7;
+  if (searchForNode(&head, item))       //search for node
   {
-    printf("\n%d is found", item_to_find);
+    printf("\n%d is found", item);
   } 
   else 
   {
-    printf("\n%d is not found", item_to_find);
+    printf("\n%d is not found", item);
   }
 
-  sortLinkedList(&head);      //sort list
-  printf("\nSorted List: ");
-  printList(head);            //traverse list
+  sortLinkedList(&head);                //sort list
+  printf("\n The Sorted List is: ");
+  printList(head);                      //traverse list
 }
