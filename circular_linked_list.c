@@ -24,7 +24,7 @@ struct Node* pushToEmpty(struct Node* last, int data)
 struct Node* pushFront(struct Node* last, int data) 
 {
   
-  if (last == NULL) return addToEmpty(last, data);
+  if (last == NULL) return pushToEmpty(last, data);
 
   struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
   newNode->data = data;
@@ -37,7 +37,7 @@ struct Node* pushFront(struct Node* last, int data)
 struct Node* pushEnd(struct Node* last, int data) 
 {
 
-  if (last == NULL) return addToEmpty(last, data);
+  if (last == NULL) return pushToEmpty(last, data);
 
   
   struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
@@ -142,7 +142,7 @@ int main()
 
   last = pushToEmpty(last, 6);
   last = pushFront(last, 2);
-  last = addAfter(last, 10, 2);
+  last = pushAfter(last, 10, 2);
   last = pushEnd(last, 8);
 
   traverse(last);
