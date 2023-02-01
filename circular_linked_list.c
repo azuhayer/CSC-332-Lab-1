@@ -9,7 +9,7 @@ struct Node
   struct Node* next;
 };
 
-struct Node* addToEmpty(struct Node* last, int data) 
+struct Node* pushToEmpty(struct Node* last, int data) 
 {
   if (last != NULL) return last;
 
@@ -21,7 +21,7 @@ struct Node* addToEmpty(struct Node* last, int data)
 }
 
 // Add node to the front
-struct Node* addFront(struct Node* last, int data) 
+struct Node* pushFront(struct Node* last, int data) 
 {
   
   if (last == NULL) return addToEmpty(last, data);
@@ -34,7 +34,7 @@ struct Node* addFront(struct Node* last, int data)
 }
 
 // Add node to the end
-struct Node* addEnd(struct Node* last, int data) 
+struct Node* pushEnd(struct Node* last, int data) 
 {
 
   if (last == NULL) return addToEmpty(last, data);
@@ -49,7 +49,7 @@ struct Node* addEnd(struct Node* last, int data)
 }
 
 // Insert node after a specific node
-struct Node* addAfter(struct Node* last, int data, int item) 
+struct Node* pushAfter(struct Node* last, int data, int item) 
 {
   
   if (last == NULL) return NULL;
@@ -140,11 +140,10 @@ int main()
 {
   struct Node* last = NULL;
 
-  last = addToEmpty(last, 6);
-  last = addEnd(last, 8);
-  last = addFront(last, 2);
-
+  last = pushToEmpty(last, 6);
+  last = pushFront(last, 2);
   last = addAfter(last, 10, 2);
+  last = pushEnd(last, 8);
 
   traverse(last);
 
