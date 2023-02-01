@@ -9,6 +9,7 @@ struct Node
   struct Node* next;
 };
 
+// Add node to an empty circular list
 struct Node* pushToEmpty(struct Node* last, int data) 
 {
   if (last != NULL) return last;
@@ -143,17 +144,23 @@ int main()
   last = pushToEmpty(last, 6);
   last = pushFront(last, 2);
   last = pushAfter(last, 10, 2);
+  last = pushAfter(last, 7, 10);
+  last = pushAfter(last, 5, 7);
   last = pushEnd(last, 8);
 
-  printf("Circular linked list: ");
+  printf("The Circular linked list is: ");
   traverse(last);
 
   printf("\n");
 
-  printf("Circular linked list after deletion: ");  
+  printf("The Circular linked list after deletion is: ");  
   deleteNode(&last, 8);
   traverse(last);
 
+  printf("\n");
+
+  printf("The sorted Circular linked list is: ");
+  
   return 0;
 }
 
