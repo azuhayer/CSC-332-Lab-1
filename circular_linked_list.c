@@ -137,6 +137,8 @@ void traverse(struct Node* last)
   } while (p != last->next);
 }
 
+//Sort the linked list
+
 int main() 
 {
   struct Node* last = NULL;
@@ -153,13 +155,15 @@ int main()
 
   printf("\n");
 
-  printf("The Circular linked list after deletion is: ");  
+  printf("The Circular linked list after DELETION is: ");  
   deleteNode(&last, 8);
   traverse(last);
 
   printf("\n");
 
-  printf("The sorted Circular linked list is: ");
+  printf("The SORTED Circular linked list is: ");
+  //sortLinkedList(&last);
+  //traverse(last);
   
   return 0;
 }
