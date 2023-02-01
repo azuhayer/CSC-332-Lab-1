@@ -145,12 +145,13 @@ int main()
   last = pushAfter(last, 10, 2);
   last = pushEnd(last, 8);
 
+  printf("Circular linked list: ");
   traverse(last);
-
-  deleteNode(&last, 8);
 
   printf("\n");
 
+  printf("Circular linked list after deletion: ");  
+  deleteNode(&last, 8);
   traverse(last);
 
   return 0;
