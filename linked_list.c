@@ -112,13 +112,13 @@ void sortLinkedList(struct Node** head_ref)
 
       while (index != NULL) 
       {
-      if (current->data > index->data) 
-      {
-        temp = current->data;
-        current->data = index->data;
-        index->data = temp;
-      }
-      index = index->next;
+        if (current->data > index->data) 
+        {
+          temp = current->data;
+          current->data = index->data;
+          index->data = temp;
+        }
+        index = index->next;
       }
       current = current->next;
     }

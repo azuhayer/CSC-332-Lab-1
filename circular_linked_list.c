@@ -9,6 +9,8 @@ struct Node
   struct Node* next;
 };
 
+struct Node *head = NULL;
+
 // Add node to an empty circular list
 struct Node* pushToEmpty(struct Node* last, int data) 
 {
@@ -138,6 +140,34 @@ void traverse(struct Node* last)
 }
 
 //Sort the linked list
+void sortList() 
+{    
+    struct Node *current = head, *index = NULL;  
+    int temp;  
+    
+    if(head == NULL) 
+    {  
+        printf("List is empty");  
+    }  
+    else 
+    {  
+        do
+        {    
+            index = current->next;  
+            while(index != head) 
+            {    
+                if(current->data > index->data) 
+                {  
+                    temp =current->data;  
+                    current->data= index->data;  
+                    index->data = temp;  
+                }  
+                index= index->next;  
+            }  
+            current =current->next;  
+        } while(current->next != head);   
+    }  
+}  
 
 int main() 
 {
@@ -162,8 +192,8 @@ int main()
   printf("\n");
 
   printf("The SORTED Circular linked list is: ");
-  //sortLinkedList(&last);
-  //traverse(last);
+  sortList();
+  traverse(last);
   
   return 0;
 }
