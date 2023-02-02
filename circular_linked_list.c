@@ -49,7 +49,7 @@ struct Node* pushEnd(struct Node* last, int data)
   return last;
 }
 
-// Insert node after a specific node
+// Insert node after a node
 struct Node* pushAfter(struct Node* last, int data, int item) 
 {
   
