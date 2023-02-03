@@ -140,32 +140,33 @@ void traverse(struct Node* last)
 //Sort the linked list
 void sortList(struct Node* last) 
 {    
-    struct Node *current = last, *index = NULL;  
-    int temp;  
+  struct Node *current = last, *index = NULL;  
+  int temp;  
     
-    if(last == NULL) 
-    {  
-        printf("List is empty");  
-    }  
-    else 
-    {
-        do
-        {    
-            index = current->next;  
-            while(index != last) 
-            {    
-                if(current->data > index->data) 
-                {  
-                    temp =current->data;  
-                    current->data= index->data;  
-                    index->data = temp;  
-                }  
-                index= index->next;  
-            }  
-            current =current->next;  
-        } 
-        while(current->next != last);   
-    }  
+  if(last == NULL) 
+  {  
+    printf("List is empty");  
+  }  
+
+  else 
+  {
+    do
+    {    
+      index = current->next;  
+      while(index != last) 
+      {    
+        if(current->data > index->data) 
+        {  
+          temp =current->data;  
+          current->data= index->data;  
+          index->data = temp;  
+        }  
+        index= index->next;  
+      }  
+        current =current->next;  
+    } 
+    while(current->next != last);   
+  }  
 }  
 
 int main() 
