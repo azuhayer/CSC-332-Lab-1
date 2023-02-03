@@ -10,6 +10,18 @@ struct Node
   struct Node* next;
 };
 
+// Add node to an empty circular list
+struct Node* pushToEmpty(struct Node* last, int data) 
+{
+  if (last != NULL) return last;
+
+  struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+  newNode->data = data;
+  last = newNode;
+  last->next = last;
+  return last;
+}
+
 // Add node to the front of the list
 struct Node* pushFront(struct Node* last, int data) 
 {
@@ -200,7 +212,7 @@ int main()
   printf("\n");
 
   printf("The Circular linked list after DELETION is: ");  
-  deleteNode(&last, 2);                                     //Delete Node
+  deleteNode(&last, 4);                                     //Delete Node
   traverse(last);
 
   printf("\n");
