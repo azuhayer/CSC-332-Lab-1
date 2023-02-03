@@ -158,13 +158,13 @@ void sortList(struct Node* last)
       {    
         if(current->data > index->data) 
         {  
-          temp =current->data;  
-          current->data= index->data;  
+          temp = current->data;  
+          current->data = index->data;  
           index->data = temp;  
         }  
-        index= index->next;  
+        index = index->next;  
       }  
-      current =current->next;  
+      current = current->next;  
     } 
   while(current->next != last);   
   }  
