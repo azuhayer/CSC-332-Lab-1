@@ -179,7 +179,7 @@ int search(struct Node* last, int key)
   {
     if(current == NULL)
     {
-      return;
+      return 0;
     }
 
     if(current->data == key)
@@ -222,12 +222,14 @@ int main()
   int key = 10;
   if(search(last, key))
   {
-    printf("\n%d is found", key);
+    printf("\n%d is found in the list", key);
   }
   else
   {
-    printf("\n%d is not found", key);
+    printf("\n%d is not found in the list", key);
   }
+
+  printf("\n");
   
   return 0;
 }
