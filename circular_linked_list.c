@@ -197,6 +197,7 @@ int main()
 {
   struct Node* last = NULL;
 
+  //Insert nodes into list
   last = pushToEmpty(last, 6);
   last = pushFront(last, 2);
   last = pushAfter(last, 10, 2);
@@ -205,22 +206,22 @@ int main()
   last = pushEnd(last, 8);
 
   printf("The Circular linked list is: ");
-  traverse(last);
+  traverse(last);                                           //Traverse list
 
   printf("\n");
 
   printf("The Circular linked list after DELETION is: ");  
-  deleteNode(&last, 2);
+  deleteNode(&last, 2);                                     //Delete Node
   traverse(last);
 
   printf("\n");
 
   printf("The SORTED Circular linked list is: ");
-  sortList(last);
+  sortList(last);                                           //Sort List
   traverse(last);
 
   int key = 10;
-  if(search(last, key))
+  if(search(last, key))                                     //Search List
   {
     printf("\n%d is found in the list", key);
   }
