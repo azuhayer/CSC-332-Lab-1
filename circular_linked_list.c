@@ -163,9 +163,9 @@ void sortList(struct Node* last)
         }  
         index= index->next;  
       }  
-        current =current->next;  
+      current =current->next;  
     } 
-    while(current->next != last);   
+  while(current->next != last);   
   }  
 }  
 
