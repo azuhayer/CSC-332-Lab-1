@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Create Node
 struct Node 
 {
   int data;
@@ -40,7 +41,6 @@ struct Node* pushEnd(struct Node* last, int data)
 
   if (last == NULL) return pushToEmpty(last, data);
 
-  
   struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
   newNode->data = data;
   newNode->next = last->next;
@@ -71,7 +71,7 @@ struct Node* pushAfter(struct Node* last, int data, int item)
 
       if (p == last) 
         last = newNode;
-        
+
       return last;
     }
     p = p->next;
