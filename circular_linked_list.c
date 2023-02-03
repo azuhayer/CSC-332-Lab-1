@@ -171,7 +171,7 @@ void sortList(struct Node* last)
 }
 
 // Search for node in list
-int search(struct Node* last, int key)
+int search(struct Node* last, int num)
 {
   int index = 0; 
   struct Node* current = last;
@@ -183,7 +183,7 @@ int search(struct Node* last, int key)
       return 0;
     }
 
-    if(current->data == key)
+    if(current->data == num)
     {
       return index;
     }
@@ -222,14 +222,16 @@ int main()
   sortList(last);                                           //Sort List
   traverse(last);
 
-  int key = 10;
-  if(search(last, key))                                     //Search List
+  printf("\n");
+
+  int num = 10;
+  if(search(last, num))                                     //Search List
   {
-    printf("\n%d is found in the list", key);
+    printf("%d is found in the list!", num);
   }
   else
   {
-    printf("\n%d is not found in the list", key);
+    printf("%d is not found in the list!", num);
   }
 
   printf("\n");
