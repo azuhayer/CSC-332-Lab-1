@@ -149,7 +149,7 @@ int main()
   pushAtEnd(&head, 3);
 
   printf("Linked list: ");
-  printList(head);
+  traverse(head);
 
   printf("\nAfter deleting an element: ");
   deleteNode(&head, 7);                  //delete node
