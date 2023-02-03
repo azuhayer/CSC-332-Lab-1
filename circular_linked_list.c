@@ -63,15 +63,16 @@ struct Node* pushAfter(struct Node* last, int data, int item)
     if (p->data == item) 
     {
         
-        newNode = (struct Node*)malloc(sizeof(struct Node));
+      newNode = (struct Node*)malloc(sizeof(struct Node));
 
-        newNode->data = data;
-        newNode->next = p->next;
-        p->next = newNode;
+      newNode->data = data;
+      newNode->next = p->next;
+      p->next = newNode;
 
-        if (p == last) 
-            last = newNode;
-        return last;
+      if (p == last) 
+        last = newNode;
+        
+      return last;
     }
     p = p->next;
   } 
@@ -193,6 +194,7 @@ int search(struct Node* last, int key)
   return -1;
 }
 
+// Driver Program
 int main() 
 {
   struct Node* last = NULL;
