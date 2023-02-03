@@ -138,7 +138,7 @@ void traverse(struct Node* last)
   } while (p != last->next);
 }
 
-//Sort the linked list
+// Sort the linked list
 void sortList(struct Node* last) 
 {    
   struct Node *current = last, *index = NULL;  
