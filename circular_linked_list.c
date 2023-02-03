@@ -177,7 +177,7 @@ int main()
   last = pushFront(last, 2);
   last = pushAfter(last, 10, 2);
   last = pushAfter(last, 7, 10);
-  last = pushAfter(last, 5, 7);
+  last = pushAfter(last, 4, 7);
   last = pushEnd(last, 8);
 
   printf("The Circular linked list is: ");
@@ -186,7 +186,7 @@ int main()
   printf("\n");
 
   printf("The Circular linked list after DELETION is: ");  
-  deleteNode(&last, 8);
+  deleteNode(&last, 2);
   traverse(last);
 
   printf("\n");
