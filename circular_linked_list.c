@@ -10,18 +10,6 @@ struct Node
   struct Node* next;
 };
 
-// Add node to an empty circular list
-struct Node* pushToEmpty(struct Node* last, int data) 
-{
-  if (last != NULL) return last;
-
-  struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
-  newNode->data = data;
-  last = newNode;
-  last->next = last;
-  return last;
-}
-
 // Add node to the front of the list
 struct Node* pushFront(struct Node* last, int data) 
 {
@@ -200,7 +188,6 @@ int main()
   struct Node* last = NULL;
 
   //Insert nodes into list
-  last = pushToEmpty(last, 6);
   last = pushFront(last, 2);
   last = pushAfter(last, 10, 2);
   last = pushAfter(last, 7, 10);
