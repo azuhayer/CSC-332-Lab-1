@@ -21,7 +21,7 @@ struct Node* pushToEmpty(struct Node* last, int data)
   return last;
 }
 
-// Add node to the front
+// Add node to the front of the list
 struct Node* pushFront(struct Node* last, int data) 
 {
   
@@ -34,7 +34,7 @@ struct Node* pushFront(struct Node* last, int data)
   return last;
 }
 
-// Add node to the end
+// Add node to the end the list
 struct Node* pushEnd(struct Node* last, int data) 
 {
 
@@ -77,11 +77,11 @@ struct Node* pushAfter(struct Node* last, int data, int item)
   } 
 
   while (p != last->next);
-  printf("\nThe given node is not in the list");
+  printf("\n The given node is not in the list");
   return last;
 }
 
-// Delete a node
+// Delete a node from the list
 void deleteNode(struct Node** last, int key) 
 {
   
@@ -167,7 +167,31 @@ void sortList(struct Node* last)
     } 
   while(current->next != last);   
   }  
-}  
+}
+
+// Search for node in list
+int search(struct Node* last, int key)
+{
+  int index = 0; 
+  struct Node* current = last;
+
+  do
+  {
+    if(current = NULL)
+    {
+      return;
+    }
+
+    if(current->data == key)
+    {
+      return index;
+    }
+    current = current->next;
+    index++;
+  } while(current != last);
+
+  return -1;
+}
 
 int main() 
 {
@@ -194,6 +218,16 @@ int main()
   printf("The SORTED Circular linked list is: ");
   sortList(last);
   traverse(last);
+
+  int key = 10;
+  if(search(&last, key))
+  {
+    printf("\n%d is found", key);
+  }
+  else
+  {
+    printf("\n%d is not found", key);
+  }
   
   return 0;
 }
