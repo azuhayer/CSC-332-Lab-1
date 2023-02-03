@@ -177,7 +177,7 @@ int search(struct Node* last, int key)
 
   do
   {
-    if(current = NULL)
+    if(current == NULL)
     {
       return;
     }
@@ -220,7 +220,7 @@ int main()
   traverse(last);
 
   int key = 10;
-  if(search(&last, key))
+  if(search(last, key))
   {
     printf("\n%d is found", key);
   }
