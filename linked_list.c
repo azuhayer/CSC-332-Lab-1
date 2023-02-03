@@ -126,7 +126,7 @@ void sortLinkedList(struct Node** head_ref)
 }
 
 //Traverse the linked list
-void printList(struct Node* node) 
+void traverse(struct Node* node) 
 {
   while (node != NULL) 
   {
@@ -153,7 +153,7 @@ int main()
 
   printf("\nAfter deleting an element: ");
   deleteNode(&head, 7);                  //delete node
-  printList(head);
+  traverse(head);
 
   int item = 7;
   if (searchForNode(&head, item))       //search for node
@@ -167,5 +167,5 @@ int main()
 
   sortLinkedList(&head);                //sort list
   printf("\n The Sorted List is: ");
-  printList(head);                      //traverse list
+  traverse(head);                      //traverse list
 }
