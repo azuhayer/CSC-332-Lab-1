@@ -156,7 +156,7 @@ int main()
   traverse(head);
 
   int item = 7;
-  if (searchForNode(&head, item))       //search for node
+  if (searchForNode(&head, item))        //search for node
   {
     printf("\n%d is found", item);
   } 
@@ -165,7 +165,7 @@ int main()
     printf("\n%d is not found", item);
   }
 
-  sortLinkedList(&head);                //sort list
+  sortLinkedList(&head);                 //sort list
   printf("\n The Sorted List is: ");
-  traverse(head);                      //traverse list
+  traverse(head);                        //traverse list
 }
